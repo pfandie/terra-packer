@@ -1,10 +1,9 @@
 # terra-packer
-
 A simple docker container including terraform, packer and aws-cli
 
+[![Build Status](https://api.travis-ci.org/pfandie/terra-packer.svg?branch=master)](https://travis-ci.org/pfandie/terra-packer)
 
 <img src="https://cdn.rawgit.com/hashicorp/terraform-website/master/content/source/assets/images/logo-hashicorp.svg" width="150x">
-
 
 ## Usage
 
