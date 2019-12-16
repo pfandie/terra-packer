@@ -1,6 +1,6 @@
 jobs:
   include:
-    - stage:
+    - stage: docker_build
       script:
         - echo "$DOCKER_PW" | docker login -u "$DOCKER_USER" --password-stdin
         - docker build -t $DOCKER_USER/terra-packer:0.5 .
