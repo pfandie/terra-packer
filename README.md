@@ -28,4 +28,5 @@ build_task:
     - aws --version
     - packer -v
     - terraform -v
+    - terraform-compliance --version
 ```
