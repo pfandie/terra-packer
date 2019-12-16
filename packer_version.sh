@@ -29,4 +29,3 @@ latest=${VERSION_LIST[0]}
 curl "https://releases.hashicorp.com/packer/${latest}/packer_${latest}_linux_amd64.zip" -o "/tmp/packer.zip" \
     && unzip -d /tmp/ /tmp/packer.zip \
     && mv /tmp/packer /usr/local/bin/packer \
-    && rm -rf /tmp/*

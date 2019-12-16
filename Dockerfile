@@ -1,17 +1,23 @@
-FROM hashicorp/terraform:latest
+FROM python:3.8-alpine
 
-RUN apk update && apk upgrade && apk add --no-cache \
-    python \
+RUN apk update && apk upgrade && apk add --no-cache --update \
+    g++ \
     unzip \
     bash \
     curl \
-    && curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "/tmp/awscli-bundle.zip" \
-    && unzip -d /tmp/ /tmp/awscli-bundle.zip \
-    && /tmp/awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws \
+    docker \
+    libxml2 \
+    libxml2-dev \
+    libxslt-dev \
     && rm -rf /var/cache/apk/*
 
-COPY /packer_version.sh .
-RUN "./packer_version.sh"
+COPY /*.sh ./
+RUN "./packer_version.sh" && \
+    "./terraform_version.sh" && \
+    "./awscli_version.sh" && \
+    "./clear_tmp.sh"
+
+RUN pip3 install terraform-compliance
 
 WORKDIR /usr/local/bin
-ENTRYPOINT [""]
+ENTRYPOINT []
