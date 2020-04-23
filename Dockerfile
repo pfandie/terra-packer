@@ -12,6 +12,7 @@ RUN apk update && apk upgrade && apk add --no-cache --update \
     libxml2-dev \
     libxslt-dev \
     ansible \
+    ansible-lint \
     && rm -rf /var/cache/apk/*
 
 COPY /*.sh ./

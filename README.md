@@ -25,6 +25,8 @@ build_task:
     refs:
       - master
   script:
+    - ansible --version
+    - ansible-lint --version
     - aws --version
     - packer -v
     - terraform -v
