@@ -3,16 +3,17 @@ FROM python:3.8-alpine
 LABEL maintainer="Hans Mayer <hans.mayer83@gmail.com>"
 
 RUN apk update && apk upgrade && apk add --no-cache --update \
-    g++ \
-    unzip \
+    ansible \
+    ansible-lint \
     bash \
     curl \
     docker \
+    g++ \
     libxml2 \
     libxml2-dev \
     libxslt-dev \
-    ansible \
-    ansible-lint \
+    openssh-client \
+    unzip \
     && rm -rf /var/cache/apk/*
 
 COPY /*.sh ./
