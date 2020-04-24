@@ -13,6 +13,7 @@ RUN apk update && apk upgrade && apk add --no-cache --update \
     libxml2-dev \
     libxslt-dev \
     openssh-client \
+    rsync \
     unzip \
     && rm -rf /var/cache/apk/*
 
