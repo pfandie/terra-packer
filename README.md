@@ -32,3 +32,13 @@ build_task:
     - terraform -v
     - terraform-compliance --version
 ```
+
+## Featured Tools
+
+* ansible
+* ansible-lint
+* aws-cli
+* packer
+* shellcheck
+* terrafom
+* terraform-compliance
