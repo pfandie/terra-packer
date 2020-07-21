@@ -15,6 +15,7 @@ RUN apk update && apk upgrade && apk add --no-cache --update \
     openssh-client \
     rsync \
     shellcheck \
+    tar \
     unzip \
     && rm -rf /var/cache/apk/*
 
