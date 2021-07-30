@@ -1,31 +1,37 @@
-FROM python:3.8-alpine
+FROM python:3.9.6-alpine3.14
+# FROM ubuntu
 
 LABEL maintainer="Hans Mayer <hans.mayer83@gmail.com>"
 
 RUN apk update && apk upgrade && apk add --no-cache --update \
     ansible \
-    ansible-lint \
     bash \
     curl \
     docker \
     g++ \
+    go \
     libxml2 \
     libxml2-dev \
     libxslt-dev \
     openssh-client \
     rsync \
     shellcheck \
+    sudo \
     tar \
     unzip \
     && rm -rf /var/cache/apk/*
 
-COPY /*.sh ./
-RUN "./packer_version.sh" && \
-    "./terraform_version.sh" && \
-    "./awscli_version.sh" && \
-    "./clear_tmp.sh"
+COPY *.sh ./
 
-RUN pip3 install terraform-compliance
+RUN ./packer_version.sh && \
+    ./terraform_version.sh && \
+    ./awscli_version.sh
+
+RUN pip3 install terraform-compliance && \
+    curl https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash && \
+    go install github.com/aquasecurity/tfsec/cmd/tfsec@latest
+
+RUN rm -rf /tmp/*
 
 WORKDIR /usr/local/bin
-ENTRYPOINT []
+CMD ["/bin/bash"]

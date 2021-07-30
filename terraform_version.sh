@@ -17,8 +17,8 @@ do
   # strip off everything before terraform_0.12.8</a>
   # also strip off the </a>
   # result is plain number for version
-  version_part_1=$(echo $pv | cut -d '_' -f 2)
-  version=$(echo $version_part_1 | cut -d '<' -f 1)
+  version_part_1=$(echo "$pv" | cut -d '_' -f 2)
+  version=$(echo "$version_part_1" | cut -d '<' -f 1)
   VERSION_LIST+=("$version")
 done
 # reset IFS
