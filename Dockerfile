@@ -1,4 +1,4 @@
-FROM python:3.9.6-alpine3.14
+FROM python:3.10.2-alpine3.15
 # FROM ubuntu
 
 LABEL maintainer="Hans Mayer <hans.mayer83@gmail.com>"
